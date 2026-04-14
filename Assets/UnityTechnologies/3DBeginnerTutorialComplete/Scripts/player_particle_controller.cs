@@ -22,11 +22,9 @@ public class player_particle_controller : MonoBehaviour
     {
         // make a vector that points to the next checkpoint
         Vector3 pos_diff = current_checkpoint.transform.position - this.transform.position;
+        // set it so it isn't pointing awkwardly upwards when close to a checkpoint
         pos_diff.y = 0;
-
-        // double rot_angle = Mathf.Acos(pos_diff.x);
-        // if (pos_diff.z < 0) rot_angle *= -1.0f;
-
+        // face the position in question
         this.transform.rotation = Quaternion.LookRotation(pos_diff, Vector3.up);
     }
 }
